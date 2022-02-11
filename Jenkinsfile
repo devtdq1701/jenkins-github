@@ -1,11 +1,13 @@
 pipeline {
-    String branchName = env.BRANCH_NAME
-    String repoUrl = "https://github.com/devtdq1701/jenkins-github.git"
     agent any
+    environment {
+      branchName = "quangtran1701/flask-docker"
+      repoUrl = "https://github.com/devtdq1701/jenkins-github.git"
+    }
     stages {
         stage( 'Clone' ) {
             steps {
-                git branch: branchName, url: repoUrl
+                git branch: ${branchName}, url: ${repoUrl}
             }
         }
     }
